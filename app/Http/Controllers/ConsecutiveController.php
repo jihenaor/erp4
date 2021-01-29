@@ -100,4 +100,21 @@ class ConsecutiveController extends Controller
     {
         //
     }
+
+      /**
+     * Consulta el consecutivo por tipo de documento
+     *
+     * @param  Documenttype_id
+     * @return \Illuminate\Http\Response
+     */
+    public function consecutivebydocumenttype($documenttype_id)
+    {
+        $t=Consecutive::where('documenttype_id', $documenttype_id)
+                    ->get();
+        $t->load('documenttype');
+        return $t;
+    }
+    
+    
+
 }

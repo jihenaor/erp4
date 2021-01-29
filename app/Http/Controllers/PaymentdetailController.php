@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Paimentdetail;
+use App\Models\Paymentdetail;
 use Illuminate\Http\Request;
 
-class PaimentdetailController extends Controller
+class PaymentdetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PaimentdetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Paimentdetail  $paimentdetail
+     * @param  \App\Models\Paymentdetail  $paymentdetail
      * @return \Illuminate\Http\Response
      */
-    public function show(Paimentdetail $paimentdetail)
+    public function show(Paymentdetail $paymentdetail)
     {
         //
     }
@@ -52,10 +52,10 @@ class PaimentdetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Paimentdetail  $paimentdetail
+     * @param  \App\Models\Paymentdetail  $paymentdetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Paimentdetail $paimentdetail)
+    public function edit(Paymentdetail $paymentdetail)
     {
         //
     }
@@ -64,10 +64,10 @@ class PaimentdetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Paimentdetail  $paimentdetail
+     * @param  \App\Models\Paymentdetail  $paymentdetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paimentdetail $paimentdetail)
+    public function update(Request $request, Paymentdetail $paymentdetail)
     {
         //
     }
@@ -75,10 +75,10 @@ class PaimentdetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Paimentdetail  $paimentdetail
+     * @param  \App\Models\Paymentdetail  $paymentdetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paimentdetail $paimentdetail)
+    public function destroy(Paymentdetail $paymentdetail)
     {
         //
     }

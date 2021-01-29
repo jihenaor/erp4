@@ -1,11 +1,35 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\MethodpaymentController;
+use  App\Http\Controllers\AttibuteController;
+use  App\Http\Controllers\BoxController;
+use  App\Http\Controllers\CarrierController;
+use  App\Http\Controllers\CategoryController;
+use  App\Http\Controllers\CompanyController;
+use  App\Http\Controllers\ConsecutiveController;
+use  App\Http\Controllers\CustomerController;
+use  App\Http\Controllers\DispatchController;
+use  App\Http\Controllers\DispatcherdocumentController;
+use  App\Http\Controllers\DocumentController;
 use  App\Http\Controllers\DocumenttypeController;
+use  App\Http\Controllers\ItemController;
+use  App\Http\Controllers\ItemdispatchController;
+use  App\Http\Controllers\ItemdocumentController;
+use  App\Http\Controllers\ItemtermController;
+use  App\Http\Controllers\ItemtypeController;
+use  App\Http\Controllers\MethodpaymentController;
+use  App\Http\Controllers\NoveltiesboxController;
+use  App\Http\Controllers\NoveltydocumentController;
+use  App\Http\Controllers\PaymentdetailController;
+use  App\Http\Controllers\PaymentController;
+use  App\Http\Controllers\PaymentplanController;
+use  App\Http\Controllers\PaymenttermController;
+use  App\Http\Controllers\PaymenttermdetailController;
 use  App\Http\Controllers\TaxController;
 use  App\Http\Controllers\TaxitemController;
-use  App\Http\Controllers\ConsecutiveController;
+use  App\Http\Controllers\TaxitemdocumentController;
+use  App\Http\Controllers\TermController;
+use  App\Http\Controllers\TypenoveltyController;
 
 
 
@@ -46,6 +70,10 @@ Route::resource('user', UserController::class);
 Route::resource('payment', PaymentController::class);
 Route::resource('paymenttermdetail', PaymenttermdetailController::class);
 Route::resource('consecutive', ConsecutiveController::class);
+
+Route::get('/consecutivebydocumenttype/{documenttype_id}', [ConsecutiveController::class, 'consecutivebydocumenttype']);
+Route::get('/noveltiesboxbyuser/{user_id}', [NoveltiesboxController::class, 'noveltiesboxbyuser']);
+
 
 
 

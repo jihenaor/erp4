@@ -11,7 +11,7 @@ class Customer extends Model
 
     protected $fillable = [
         
-        'identificationtype', 'identificationnumber', 'name', 'adress', 'city', 'phonenumber', 
+        'identificationtype', 'identificationnumber', 'name', 'address', 'city', 'phonenumber', 
         'mobilenumber', 'email', 'website', 'urlimage', 'type'
      ];
     public function documents()

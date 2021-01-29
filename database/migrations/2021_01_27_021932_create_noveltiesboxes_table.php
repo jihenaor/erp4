@@ -14,7 +14,7 @@ class CreateNoveltiesboxesTable extends Migration
     public function up()
     {
         Schema::create('noveltiesboxes', function (Blueprint $table) {
-            $table->unsignedInteger('id')->autoIncremet();
+            $table->unsignedInteger('id')->autoIncrement();
             $table->decimal('ivalue', 9, 2);
             $table->decimal('fvalue', 9, 2);
             $table->date('date');

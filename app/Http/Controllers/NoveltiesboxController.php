@@ -82,4 +82,21 @@ class NoveltiesboxController extends Controller
     {
         //
     }
+
+   
+
+     /**
+     * Consulta el consecutivo por tipo de documento
+     *
+     * @param  User_id
+     * @return \Illuminate\Http\Response
+     */
+    public function noveltiesboxbyuser($user_id)
+    {
+        $t=Noveltiesbox::where('user_id', $user_id)
+                    ->get();
+        $t->load('user');
+        $t->load('box');
+        return $t;
+    }
 }

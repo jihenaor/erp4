@@ -23,10 +23,10 @@ class CustomerFactory extends Factory
     {
         return [
             'identificationtype' => $this->faker->randomElement(['CC', 'TI', 'NI', 'PE']),
-            'identificationnumber' => $this->faker->sentence(),
+            'identificationnumber' => $this->faker->text(16),
             'name' => $this->faker->sentence(),
             'address' => $this->faker->sentence(),
-            'city' => $this->faker->sentence(),
+            'city' => $this->faker->text(10),
             'phonenumber' => $this->faker->phoneNumber,
             'mobilenumber' => $this->faker->phoneNumber,
             'email' => $this->faker->email,

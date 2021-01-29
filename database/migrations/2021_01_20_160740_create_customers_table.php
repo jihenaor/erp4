@@ -18,7 +18,7 @@ class CreateCustomersTable extends Migration
             $table->string('identificationtype',2);
             $table->string('identificationnumber',16);
             $table->string('name',80);
-            $table->string('adress',200);
+            $table->string('address',200);
             $table->string('city',45);
             $table->string('phonenumber',45)->nullable();
             $table->string('mobilenumber',45)->nullable();
