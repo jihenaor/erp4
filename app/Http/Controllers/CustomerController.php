@@ -36,7 +36,22 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = new Customer();
+        $customer->identificationtype = $request->identificationtype;
+        $customer->identificationnumber = $request->identificationnumber;
+        $customer->name = $request->name;
+        $customer->address = $request->address;
+        $customer->city = $request->city;
+        $customer->phonenumber = $request->phonenumber;
+        $customer->mobilenumber = $request->mobilenumber;
+        $customer->email = $request->email;
+        $customer->website = $request->website;
+        $customer->urlimage = $request->urlimage;
+        $customer->type = $request->type;
+
+        if ($customer->save()) {
+            return $customer;
+        }
     }
 
     /**
@@ -70,7 +85,22 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $customer->identificationtype = $request->identificationtype;
+        $customer->identificationnumber = $request->identificationnumber;
+        $customer->name = $request->name;
+        $customer->address = $request->address;
+        $customer->city = $request->city;
+        $customer->phonenumber = $request->phonenumber;
+        $customer->mobilenumber = $request->mobilenumber;
+        $customer->email = $request->email;
+        $customer->website = $request->website;
+        $customer->urlimage = $request->urlimage;
+        $customer->type = $request->type;
+
+        if ($customer->save()) {
+            return $customer;
+        }
     }
 
     /**
@@ -81,6 +111,9 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        if ($customer->delete()) {
+            return $customer;
+        }
     }
 }
