@@ -24,13 +24,12 @@ class CustomerFactory extends Factory
         return [
             'identificationtype' => $this->faker->randomElement(['CC', 'TI', 'NI', 'PE']),
             'identificationnumber' => $this->faker->text(16),
-            'name' => $this->faker->sentence(),
-            'address' => $this->faker->sentence(),
+            'name' => $this->faker->text(80),
+            'address' => $this->faker->text(200),
             'city' => $this->faker->text(10),
             'phonenumber' => $this->faker->phoneNumber,
             'mobilenumber' => $this->faker->phoneNumber,
             'email' => $this->faker->email,
-            'name' => $this->faker->sentence(),
             'type' => $this->faker->randomElement(['1', '2'])
         ];
     }

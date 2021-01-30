@@ -24,8 +24,11 @@ class PaymenttermdetailFactory extends Factory
         return [
             
             'type' => $this->faker->randomElement(['1', '2', '3']),
-            'description' => $this->faker->text(10)
-    
+            'value' => $this->faker->numberBetween(1, 10),
+            'expiration' => $this->faker->numberBetween(1, 150),
+            'expirationtype' => $this->faker->randomElement(['A', 'B', 'C']),
+            'paymentterm_id' => $this->faker->numberBetween(1, 3),
+
     ];
     }
 }

@@ -14,7 +14,8 @@ class PaymenttermController extends Controller
      */
     public function index()
     {
-        $l=Paymentterm::All();
+        $l=Paymentterm::with('paymenttermdetail')->get();
+      
         return $l;
 
     }
