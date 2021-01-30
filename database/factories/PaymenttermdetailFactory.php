@@ -22,7 +22,10 @@ class PaymenttermdetailFactory extends Factory
     public function definition()
     {
         return [
-            //
-        ];
+            
+            'type' => $this->faker->randomElement(['1', '2', '3']),
+            'description' => $this->faker->text(10)
+    
+    ];
     }
 }

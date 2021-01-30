@@ -23,8 +23,8 @@ class PaymenttermFactory extends Factory
     {
         return [
             
-                'name' => $this->faker->sentence(),
-                'description' => $this->faker->sentence()
+                'name' => $this->faker->text(45),
+                'description' => $this->faker->text(10)
         
         ];
     }

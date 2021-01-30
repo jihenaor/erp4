@@ -14,7 +14,9 @@ class PaymenttermController extends Controller
      */
     public function index()
     {
-        //
+        $l=Paymentterm::All();
+        return $l;
+
     }
 
     /**
@@ -82,4 +84,5 @@ class PaymenttermController extends Controller
     {
         //
     }
+
 }

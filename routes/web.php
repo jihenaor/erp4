@@ -70,6 +70,8 @@ Route::resource('user', UserController::class);
 Route::resource('payment', PaymentController::class);
 Route::resource('paymenttermdetail', PaymenttermdetailController::class);
 Route::resource('consecutive', ConsecutiveController::class);
+Route::resource('paymentterm', PaymenttermController::class);
+
 
 Route::get('/consecutivebydocumenttype/{documenttype_id}', [ConsecutiveController::class, 'consecutivebydocumenttype']);
 Route::get('/noveltiesboxbyuser/{user_id}', [NoveltiesboxController::class, 'noveltiesboxbyuser']);
