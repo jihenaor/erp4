@@ -14,7 +14,20 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        //$l=Item::with('itemterm')->get();
+
+        $l=Item::with(['itemterm'=> function($q){
+
+        }])->find(1);
+
+        $l->map(function ($item) {
+            
+        })
+
+        return $l;
+
+
+
     }
 
     /**

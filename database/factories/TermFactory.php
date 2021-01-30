@@ -22,7 +22,8 @@ class TermFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=> $this->faker->text(45),
+            'attribute_id' => $this->faker->numberBetween(1, 30)
         ];
     }
 }

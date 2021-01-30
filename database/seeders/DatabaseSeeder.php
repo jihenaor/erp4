@@ -25,6 +25,19 @@ class DatabaseSeeder extends Seeder
         \App\Models\Consecutive::factory(3)->create();
         \App\Models\Customer::factory(30)->create();
 
+        \App\Models\Item::factory(30)->create();
+        \App\Models\Attribute::factory(30)->create();
+        \App\Models\Term::factory(30)->create();
+        \App\Models\Itemterm::factory(30)->create();
+  
+       // \App\Models\Itemtype::factory(30)->create();
+       // \App\Models\Itemdocument::factory(30)->create();
+     
+        // \App\Models\Itemdispatches::factory(30)->create();
+
+
+
+
 
 
         

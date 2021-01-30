@@ -71,6 +71,14 @@ Route::resource('payment', PaymentController::class);
 Route::resource('paymenttermdetail', PaymenttermdetailController::class);
 Route::resource('consecutive', ConsecutiveController::class);
 Route::resource('paymentterm', PaymenttermController::class);
+Route::resource('item', ItemController::class);
+Route::resource('attribute', AttributeController::class);
+Route::resource('term', TermController::class);
+Route::resource('itemterm', ItemtermController::class);
+
+
+
+
 
 
 Route::get('/consecutivebydocumenttype/{documenttype_id}', [ConsecutiveController::class, 'consecutivebydocumenttype']);

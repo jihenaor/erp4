@@ -18,9 +18,10 @@ class CreateItemsTable extends Migration
             $table->string('ref', 45);
             $table->string('name', 45);
             $table->string('canbesold', 1);
+            $table->string('canbebought', 1);
             $table->string('barcode', 45);
             $table->string('notes', 200);
-            $table->string('urlimage', 200);
+            $table->string('urlimage', 200)->nullable();
             $table->timestamps();
         });
     }

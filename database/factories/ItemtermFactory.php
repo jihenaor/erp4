@@ -22,7 +22,9 @@ class ItemtermFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'price'=>$this->faker->numberBetween(1, 30),
+            'item_id'=>$this->faker->numberBetween(1, 30),
+            'term_id'=>$this->faker->numberBetween(1, 30)
         ];
     }
 }

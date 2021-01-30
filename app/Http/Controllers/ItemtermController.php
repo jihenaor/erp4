@@ -14,7 +14,10 @@ class ItemtermController extends Controller
      */
     public function index()
     {
-        //
+        $l=Itemterm::All();
+        $l->load('item');
+        $l->load('term');
+        return $l;
     }
 
     /**

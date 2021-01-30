@@ -14,7 +14,8 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        //
+        $l=Attribute::All();
+        return $l;
     }
 
     /**

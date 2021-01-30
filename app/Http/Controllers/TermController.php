@@ -14,7 +14,9 @@ class TermController extends Controller
      */
     public function index()
     {
-        //
+        $l=Term::All();
+        $l->load('attribute');
+        return $l;
     }
 
     /**

@@ -22,7 +22,12 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'ref' => $this->faker->text(45),
+            'name' => $this->faker->text(45),
+            'canbesold' => $this->faker->randomElement(['Y', 'N']),
+            'canbebought' => $this->faker->randomElement(['Y', 'N']),
+            'barcode' => $this->faker->text(45),
+            'notes' => $this->faker->text(200),
         ];
     }
 }

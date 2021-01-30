@@ -16,7 +16,6 @@ class CreateDocumenttypesTable extends Migration
         Schema::create('documenttypes', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
             $table->string('name');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
