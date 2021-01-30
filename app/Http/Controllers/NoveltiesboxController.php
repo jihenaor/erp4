@@ -83,7 +83,6 @@ class NoveltiesboxController extends Controller
         //
     }
 
-   
 
      /**
      * Consulta el consecutivo por tipo de documento
@@ -94,10 +93,11 @@ class NoveltiesboxController extends Controller
     public function noveltiesboxbyuser($user_id)
     {
         $t=Noveltiesbox::where('user_id', $user_id)
-        ->whereDate('date', '=', date('Y-m-d'))
+                    ->whereDate('date', date('Y-m-d'))
                     ->get();
         $t->load('user');
         $t->load('box');
         return $t;
+        
     }
 }
