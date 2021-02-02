@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Itemterm;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ItemtermFactory extends Factory
+class ItemTermFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
@@ -22,9 +22,9 @@ class ItemtermFactory extends Factory
     public function definition()
     {
         return [
-            'price'=>$this->faker->numberBetween(1, 30),
             'item_id'=>$this->faker->numberBetween(1, 30),
-            'term_id'=>$this->faker->numberBetween(1, 30)
+            'term_id'=>$this->faker->numberBetween(1, 30),
+            'price'=>$this->faker->numberBetween(1, 30),
         ];
     }
 }

@@ -23,6 +23,11 @@ class CreateItemsTable extends Migration
             $table->string('notes', 200);
             $table->string('urlimage', 200)->nullable();
             $table->timestamps();
+
+            /*
+en la relacion con categoria
+            ->onDelete('set null)
+            */
         });
     }
 

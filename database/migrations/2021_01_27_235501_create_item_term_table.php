@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemtermsTable extends Migration
+class CreateItemTermTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,21 @@ class CreateItemtermsTable extends Migration
      */
     public function up()
     {
-        Schema::create('itemterms', function (Blueprint $table) {
+        Schema::create('item_term', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
-            $table->decimal('price', 9, 2);
             $table->unsignedInteger('item_id');
-            $table->foreign('item_id')->references('id')->on('items');
             $table->unsignedInteger('term_id');
-            $table->foreign('term_id')->references('id')->on('terms');
+            $table->decimal('price', 9, 2);
+            
             $table->timestamps();
+
+            $table->foreign('item_id')->references('id')->on('items')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            
+            $table->foreign('term_id')->references('id')->on('terms')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');;
         });
     }
 
@@ -31,6 +38,6 @@ class CreateItemtermsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('itemterms');
+        Schema::dropIfExists('item_term');
     }
 }

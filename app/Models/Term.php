@@ -15,4 +15,9 @@ class Term extends Model
     {
         return $this->belongsTo(Attribute::class);
     }
+
+    public function items()
+    {
+        return $this->belongsToMany(Items::class)->withTimestamps();
+    }
 }

@@ -28,6 +28,7 @@ class ItemFactory extends Factory
             'canbebought' => $this->faker->randomElement(['Y', 'N']),
             'barcode' => $this->faker->text(45),
             'notes' => $this->faker->text(200),
+            'urlimage' => $this->faker->imageUrl(1024, 1024)
         ];
     }
 }

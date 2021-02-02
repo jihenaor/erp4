@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Term;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -14,20 +15,20 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //$l=Item::with('itemterm')->get();
-
+//        $l = Item::All();
+        $l = Item::with('terms')->get();
+/*
         $l=Item::with(['itemterm'=> function($q){
 
-        }])->find(1);
-
+            return $q->belongsTo(Term::class);
+        }])->get();
+        */
+/*
         $l->map(function ($item) {
             
-        })
-
+        });
+*/
         return $l;
-
-
-
     }
 
     /**

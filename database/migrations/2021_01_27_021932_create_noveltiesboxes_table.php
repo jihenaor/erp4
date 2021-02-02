@@ -19,7 +19,9 @@ class CreateNoveltiesboxesTable extends Migration
             $table->decimal('fvalue', 9, 2);
             $table->date('date');
             $table->unsignedInteger('box_id');
-            $table->foreign('box_id')->references('id')->on('boxes');
+            $table->foreign('box_id')->references('id')->on('boxes')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

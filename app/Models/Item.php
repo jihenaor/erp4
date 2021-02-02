@@ -14,9 +14,10 @@ class Item extends Model
         'ref', 'name', 'canbesold', 'canbebought', 'itemstype_id', 'category_id', 'barcode', 'notes', 'urlimage'
         
     ];
-    public function itemterm()
+    
+    public function terms()
     {
-        return $this->hasMany(Itemterm::class);
+        return $this->belongsToMany(Term::class);
     }
 
 

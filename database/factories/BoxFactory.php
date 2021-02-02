@@ -22,7 +22,7 @@ class BoxFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(10)
+            // 'name' => $this->faker->text(10)
         ];
     }
 }
