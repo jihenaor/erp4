@@ -53,7 +53,19 @@ class ConsecutiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $consecutive = new Consecutive();
+        $consecutive->startingrange = $request->startingrange;
+        $consecutive->finalrange = $request->finalrange;
+        $consecutive->prefix = $request->prefix;
+        $consecutive->startingvigence = $request->startingvigence;
+        $consecutive->finalvigence = $request->finalvigence;
+        $consecutive->consecutive = $request->consecutive;
+        $consecutive->documenttype_id = $request->documenttype_id;
+
+        if ($consecutive->save()) {
+            return $consecutive;
+        }
+
     }
 
     /**
@@ -85,9 +97,19 @@ class ConsecutiveController extends Controller
      * @param  \App\Models\Consecutive  $consecutive
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Consecutive $consecutive)
+    public function update(Request $request, $id)
     {
-        //
+        $customer = Consecutive::findOrFail($id);
+        $consecutive->startingrange = $request->startingrange;
+        $consecutive->finalrange = $request->finalrange;
+        $consecutive->prefix = $request->prefix;
+        $consecutive->startingvigence = $request->startingvigence;
+        $consecutive->finalvigence = $request->finalvigence;
+        $consecutive->consecutive = $request->consecutive;
+        $consecutive->documenttype_id = $request->documenttype_id;
+        if ($customer->save()) {
+            return $customer;
+        }
     }
 
     /**

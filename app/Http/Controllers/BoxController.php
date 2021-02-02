@@ -35,7 +35,12 @@ class BoxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $box = new Box();
+        $box->name = $request->name;
+        
+        if ($box->save()) {
+            return $box;
+        }
     }
 
     /**
@@ -64,12 +69,17 @@ class BoxController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Box  $box
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Box $box)
+    public function update(Request $request, $id)
     {
-        //
+        $box = Box::findOrFail($id);
+        $box->name = $request->name;
+
+        if ($box->save()) {
+            return $box;
+        }
     }
 
     /**

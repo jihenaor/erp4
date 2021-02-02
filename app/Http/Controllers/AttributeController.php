@@ -36,7 +36,12 @@ class AttributeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attribute = new Attribute();
+        $attribute->name = $request->name;
+        
+        if ($attribute->save()) {
+            return $attribute;
+        }
     }
 
     /**
@@ -65,12 +70,17 @@ class AttributeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Attribute  $attribute
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Attribute $attribute)
+    public function update(Request $request, $id)
     {
-        //
+        $attribute = Attribute::findOrFail($id);
+        $attribute->name = $request->name;
+
+        if ($attribute->save()) {
+            return $attribute;
+        }
     }
 
     /**

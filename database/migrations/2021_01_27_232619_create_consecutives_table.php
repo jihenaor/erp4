@@ -16,7 +16,7 @@ class CreateConsecutivesTable extends Migration
         Schema::create('consecutives', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
             $table->unsignedInteger('startingrange');
-            $table->unsignedInteger('finalgrange');
+            $table->unsignedInteger('finalrange');
             $table->string('prefix', 3);
             $table->date('startingvigence');
             $table->date('finalvigence');

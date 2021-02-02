@@ -35,7 +35,12 @@ class CarrierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $carrier = new Carrier();
+        $carrier->name = $request->name;
+        
+        if ($carrier->save()) {
+            return $carrier;
+        }
     }
 
     /**
@@ -64,12 +69,17 @@ class CarrierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Carrier  $carrier
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carrier $carrier)
+    public function update(Request $request, $id)
     {
-        //
+        $carrier = Carrier::findOrFail($id);
+        $carrier->name = $request->name;
+
+        if ($carrier->save()) {
+            return $carrier;
+        }
     }
 
     /**

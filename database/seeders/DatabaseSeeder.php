@@ -36,11 +36,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\Attribute::factory(30)->create();
         \App\Models\Term::factory(30)->create();
         
-        DB::table('item_term')->insert([
+        /*DB::table('item_term')->insert([
             'item_id' => numberBetween(1, 30),
             'term_id' => numberBetween(1, 30),
             'price' => 0,
-        ]);
+        ]);*/
         
 //        \App\Models\Itemterm::factory(30)->create();
 

@@ -35,7 +35,19 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $company = new Company();
+        $company->name = $request->name;
+        $company->nif = $request->nif;
+        $company->address = $request->address;
+        $company->city = $request->city;
+        $company->phonenumber = $request->phonenumber;
+        $company->mobilenumber = $request->mobilenumber;
+        $company->email = $request->email;
+        $company->website = $request->website;
+
+        if ($customer->save()) {
+            return $customer;
+        }
     }
 
     /**
@@ -64,13 +76,26 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company  $company
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, $id)
     {
-        //
+        $company = Company::findOrFail($id);
+        $company->name = $request->name;
+        $company->nif = $request->nif;
+        $company->address = $request->address;
+        $company->city = $request->city;
+        $company->phonenumber = $request->phonenumber;
+        $company->mobilenumber = $request->mobilenumber;
+        $company->email = $request->email;
+        $company->website = $request->website;
+
+        if ($company->save()) {
+            return $company;
+        }
     }
+    
 
     /**
      * Remove the specified resource from storage.

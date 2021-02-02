@@ -24,7 +24,7 @@ class ConsecutiveFactory extends Factory
         return [
             'documenttype_id' => $this->faker->unique()->numberBetween(1, 3),
             'startingrange' => $this->faker->numberBetween(1, 10),
-            'finalgrange' => $this->faker->numberBetween(10, 20),
+            'finalrange' => $this->faker->numberBetween(10, 20),
             'prefix' => $this->faker->randomElement(['INV', 'COT', 'NOT']),
             'startingvigence' => $this->faker->date($format='Y-m-d', $max='now'),
             'finalvigence' => $this->faker->date($format='Y-m-d', $max='now'),
