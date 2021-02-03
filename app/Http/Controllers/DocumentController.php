@@ -35,7 +35,22 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $document = new Document();
+        $document->customer_id = $request->customer_id;
+        $document->documenttype_id = $request->documenttype_id;
+        $document->paymentterm_id = $request->paymentterm_id;
+        $document->user_id = $request->user_id;
+        $document->box_id = $request->box_id;
+        $document->consecutive = $request->consecutive;
+        $document->date = $request->date;
+        $document->paymentreference = $request->paymentreference;
+        $document->duedate = $request->duedate;
+        $document->expirationdays = $request->expirationdays;
+        $document->email = $request->email;
+       
+        if ($document->save()) {
+            return $document;
+        }
     }
 
     /**
@@ -64,12 +79,27 @@ class DocumentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Document  $document
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Document $document)
+    public function update(Request $request, $id)
     {
-        //
+        $document = Document::findOrFail($id);
+        $document->customer_id = $request->customer_id;
+        $document->documenttype_id = $request->documenttype_id;
+        $document->paymentterm_id = $request->paymentterm_id;
+        $document->user_id = $request->user_id;
+        $document->box_id = $request->box_id;
+        $document->consecutive = $request->consecutive;
+        $document->date = $request->date;
+        $document->paymentreference = $request->paymentreference;
+        $document->duedate = $request->duedate;
+        $document->expirationdays = $request->expirationdays;
+        $document->email = $request->email;
+
+        if ($document->save()) {
+            return $document;
+        }
     }
 
     /**

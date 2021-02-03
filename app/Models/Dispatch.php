@@ -22,10 +22,10 @@ class Dispatch extends Model
     {
         return $this->belongsTo(Customer::class);
     }
-    public function user()
+    /*public function user()
     {
         return $this->belongsTo(User::class);
-    }
+    }*/
     //verificar la doble relación
 
 }

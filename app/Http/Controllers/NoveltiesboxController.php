@@ -35,7 +35,17 @@ class NoveltiesboxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $noveltiesbox = new Noveltiesbox();
+        $noveltiesbox->ivalue = $request->ivalue;
+        $noveltiesbox->fvalue = $request->fvalue;
+        $noveltiesbox->date = $request->date;
+        $noveltiesbox->box_id = $request->box_id;
+        $noveltiesbox->user_id = $request->user_id;
+
+        if ($noveltiesbox->save()) {
+            return $noveltiesbox;
+        }
+
     }
 
     /**
@@ -64,12 +74,21 @@ class NoveltiesboxController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Noveltiesbox  $noveltiesbox
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Noveltiesbox $noveltiesbox)
+    public function update(Request $request, $id)
     {
-        //
+        $noveltiesbox = Noveltiesbox::findOrFail($id);
+        $noveltiesbox->ivalue = $request->ivalue;
+        $noveltiesbox->fvalue = $request->fvalue;
+        $noveltiesbox->date = $request->date;
+        $noveltiesbox->box_id = $request->box_id;
+        $noveltiesbox->user_id = $request->user_id;
+
+        if ($noveltiesbox->save()) {
+            return $noveltiesbox;
+        }
     }
 
     /**

@@ -33,7 +33,7 @@ class CreateDocumentsTable extends Migration
             $table->unsignedInteger('documenttype_id');
             $table->foreign('documenttype_id')->references('id')->on('documenttypes');
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->unsignedInteger('paymentterms_id')->nullable();
+            $table->unsignedInteger('paymentterm_id')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('box_id')->nullable();    

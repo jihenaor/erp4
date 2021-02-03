@@ -35,7 +35,23 @@ class DispatchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dispatch = new Dispatch();
+        $dispatch->customer_id = $request->customer_id;
+        $dispatch->carrier_id = $request->carrier_id;
+        $dispatch->name = $request->name;
+        $dispatch->address = $request->address;
+        $dispatch->city = $request->city;
+        $dispatch->schedule = $request->schedule;
+        $dispatch->guidenumber = $request->guidenumber;
+        $dispatch->deliverydate = $request->deliverydate;
+        //$dispatch->dispatcher_id = $request->dispatcher_id;
+        //$dispatch->receiver_id = $request->receiver_id;
+
+        if ($dispatch->save()) {
+            return $dispatch;
+        }
+
+        
     }
 
     /**
@@ -64,12 +80,26 @@ class DispatchController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Dispatch  $dispatch
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dispatch $dispatch)
+    public function update(Request $request, $id)
     {
-        //
+        $dispatch = Dispatch::findOrFail($id);
+        $dispatch->customer_id = $request->customer_id;
+        $dispatch->carrier_id = $request->carrier_id;
+        $dispatch->name = $request->name;
+        $dispatch->address = $request->address;
+        $dispatch->city = $request->city;
+        $dispatch->schedule = $request->schedule;
+        $dispatch->guidenumber = $request->guidenumber;
+        $dispatch->deliverydate = $request->deliverydate;
+        //$dispatch->dispatcher_id = $request->dispatcher_id;
+        //$dispatch->receiver_id = $request->receiver_id;
+
+        if ($dispatch->save()) {
+            return $dispatch;
+        }
     }
 
     /**

@@ -94,12 +94,12 @@ class ConsecutiveController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Consecutive  $consecutive
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $customer = Consecutive::findOrFail($id);
+        $consecutive = Consecutive::findOrFail($id);
         $consecutive->startingrange = $request->startingrange;
         $consecutive->finalrange = $request->finalrange;
         $consecutive->prefix = $request->prefix;
@@ -107,8 +107,9 @@ class ConsecutiveController extends Controller
         $consecutive->finalvigence = $request->finalvigence;
         $consecutive->consecutive = $request->consecutive;
         $consecutive->documenttype_id = $request->documenttype_id;
-        if ($customer->save()) {
-            return $customer;
+        
+        if ($consecutive->save()) {
+            return $consecutive;
         }
     }
 

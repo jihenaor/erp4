@@ -35,7 +35,13 @@ class PaymentdetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paymentdetail = new Paymentdetail();
+        $paymentdetail->transactionnumber = $request->transactionnumber;
+        $paymentdetail->value = $request->value;
+
+        if ($paymentdetail->save()) {
+            return $paymentdetail;
+        }
     }
 
     /**
@@ -64,12 +70,18 @@ class PaymentdetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Paymentdetail  $paymentdetail
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paymentdetail $paymentdetail)
+    public function update(Request $request, $id)
     {
-        //
+        $paymentdetail = Paymentdetail::findOrFail($id);
+        $paymentdetail->transactionnumber = $request->transactionnumber;
+        $paymentdetail->value = $request->value;
+
+        if ($paymentdetail->save()) {
+            return $paymentdetail;
+        }
     }
 
     /**

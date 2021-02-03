@@ -35,7 +35,16 @@ class TaxitemdocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $taxitemdocument = new Taxitemdocument();
+        $taxitemdocument->factor = $request->factor;
+        $taxitemdocument->value = $request->value;
+        $taxitemdocument->tax_id = $request->tax_id;
+        $taxitemdocument->itemdocument_id = $request->itemdocument_id;
+
+        if ($taxitemdocument->save()) {
+            return $taxitemdocument;
+        }
+
     }
 
     /**
@@ -64,12 +73,21 @@ class TaxitemdocumentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Taxitemdocument  $taxitemdocument
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Taxitemdocument $taxitemdocument)
+    public function update(Request $request, $id)
     {
-        //
+        $taxitemdocument = Taxitemdocument::findOrFail($id);
+        $taxitemdocument->factor = $request->factor;
+        $taxitemdocument->value = $request->value;
+        $taxitemdocument->tax_id = $request->tax_id;
+        $taxitemdocument->itemdocument_id = $request->itemdocument_id;
+
+        if ($taxitemdocument->save()) {
+            return $taxitemdocument;
+        }
+
     }
 
     /**

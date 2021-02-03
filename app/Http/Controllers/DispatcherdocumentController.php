@@ -35,7 +35,13 @@ class DispatcherdocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dispatcherdocument = new Dispatcherdocument();
+        $dispatch->document_id = $request->document_id;
+        $dispatch->dispatch_id = $request->dispatch_id;
+        
+        if ($dispatcherdocument->save()) {
+            return $dispatcherdocument;
+        }
     }
 
     /**
@@ -64,12 +70,18 @@ class DispatcherdocumentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Dispatcherdocument  $dispatcherdocument
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dispatcherdocument $dispatcherdocument)
+    public function update(Request $request, $id)
     {
-        //
+        $dispatcherdocument = Dispatcherdocument::findOrFail($id);
+        $dispatch->document_id = $request->document_id;
+        $dispatch->dispatch_id = $request->dispatch_id;
+
+        if ($dispatcherdocument->save()) {
+            return $dispatcherdocument;
+        }
     }
 
     /**

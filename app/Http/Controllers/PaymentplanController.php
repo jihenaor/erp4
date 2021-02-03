@@ -35,7 +35,17 @@ class PaymentplanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paymentplan = new Paymentplan();
+        $paymentplan->percent = $request->percent;
+        $paymentplan->value = $request->value;
+        $paymentplan->date = $request->date;
+        $paymentplan->expiration = $request->expiration;
+        $paymentplan->description = $request->description;
+        $paymentplan->document_id = $request->document_id;
+
+        if ($paymentplan->save()) {
+            return $paymentplan;
+        }
     }
 
     /**
@@ -64,12 +74,22 @@ class PaymentplanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Paymentplan  $paymentplan
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paymentplan $paymentplan)
+    public function update(Request $request, $id)
     {
-        //
+        $paymentdetail = Paymentdetail::findOrFail($id);
+        $paymentplan->percent = $request->percent;
+        $paymentplan->value = $request->value;
+        $paymentplan->date = $request->date;
+        $paymentplan->expiration = $request->expiration;
+        $paymentplan->description = $request->description;
+        $paymentplan->document_id = $request->document_id;
+
+        if ($paymentplan->save()) {
+            return $paymentplan;
+        }
     }
 
     /**

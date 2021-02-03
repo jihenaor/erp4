@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Methodspayments extends Model
+class Methodpayment extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Methodspayments extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name'
     ];
 
 }

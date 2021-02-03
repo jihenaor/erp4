@@ -35,7 +35,17 @@ class ItemdocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $itemdocument = new Itemdocument();
+        $itemdocument->description = $request->description;
+        $itemdocument->qty = $request->qty;
+        $itemdocument->unitvalue = $request->unitvalue;
+        $itemdocument->document_id = $request->document_id;
+        $itemdocument->item_id = $request->item_id;
+
+        if ($itemdocument->save()) {
+            return $itemdocument;
+        }
+
     }
 
     /**
@@ -64,12 +74,21 @@ class ItemdocumentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Itemdocument  $itemdocument
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Itemdocument $itemdocument)
+    public function update(Request $request, $id)
     {
-        //
+        $itemdocument = Itemdocument::findOrFail($id);
+        $itemdocument->description = $request->description;
+        $itemdocument->qty = $request->qty;
+        $itemdocument->unitvalue = $request->unitvalue;
+        $itemdocument->document_id = $request->document_id;
+        $itemdocument->item_id = $request->item_id;
+
+        if ($itemdocument->save()) {
+            return $itemdocument;
+        }
     }
 
     /**

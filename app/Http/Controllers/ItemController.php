@@ -49,7 +49,18 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Item();
+        $item->ref = $request->ref;
+        $item->name = $request->name;
+        $item->canbesold = $request->canbesold;
+        $item->canbebought = $request->canbebought;
+        $item->barcode = $request->barcode;
+        $item->notes = $request->notes;
+        $item->urlimage = $request->urlimage;
+
+        if ($item->save()) {
+            return $item;
+        }
     }
 
     /**
@@ -78,12 +89,23 @@ class ItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Item  $item
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(Request $request, $id)
     {
-        //
+        $item = Item::findOrFail($id);
+        $item->ref = $request->ref;
+        $item->name = $request->name;
+        $item->canbesold = $request->canbesold;
+        $item->canbebought = $request->canbebought;
+        $item->barcode = $request->barcode;
+        $item->notes = $request->notes;
+        $item->urlimage = $request->urlimage;
+
+        if ($item->save()) {
+            return $item;
+        }
     }
 
     /**

@@ -37,7 +37,12 @@ class TaxitemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $taxitem = new Taxitem();
+        $taxitem->tax_id = $request->tax_id;
+
+        if ($taxitem->save()) {
+            return $taxitem;
+        }
     }
 
     /**
@@ -66,13 +71,19 @@ class TaxitemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Taxitem  $taxitem
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Taxitem $taxitem)
+    public function update(Request $request, $id)
     {
-        //
+        $taxitem = Taxitem::findOrFail($id);
+        $taxitem->tax_id = $request->tax_id;
+
+        if ($taxitem->save()) {
+            return $taxitem;
+        }
     }
+    
 
     /**
      * Remove the specified resource from storage.

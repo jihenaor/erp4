@@ -35,7 +35,17 @@ class PaymenttermdetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paymenttermdetail = new Paymenttermdetail();
+        $paymenttermdetail->type = $request->type;
+        $paymenttermdetail->value = $request->value;
+        $paymenttermdetail->expiration = $request->expiration;
+        $paymenttermdetail->expirationtype = $request->expirationtype;
+        $paymenttermdetail->paymentterm_id = $request->paymentterm_id;
+
+        if ($paymenttermdetail->save()) {
+            return $paymenttermdetail;
+        }
+
     }
 
     /**
@@ -64,12 +74,22 @@ class PaymenttermdetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Paymenttermdetail  $paymenttermdetail
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paymenttermdetail $paymenttermdetail)
+    public function update(Request $request, $id)
     {
-        //
+        $paymenttermdetail = Paymenttermdetail::findOrFail($id);
+        $paymenttermdetail->type = $request->type;
+        $paymenttermdetail->value = $request->value;
+        $paymenttermdetail->expiration = $request->expiration;
+        $paymenttermdetail->expirationtype = $request->expirationtype;
+        $paymenttermdetail->paymentterm_id = $request->paymentterm_id;
+
+        if ($paymenttermdetail->save()) {
+            return $paymenttermdetail;
+        }
+  
     }
 
     /**

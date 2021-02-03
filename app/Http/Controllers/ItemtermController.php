@@ -38,7 +38,7 @@ class ItemtermController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$itemterm = new Itemdocument();
     }
 
     /**

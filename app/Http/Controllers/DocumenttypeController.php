@@ -15,9 +15,16 @@ class DocumenttypeController extends Controller
         return Documenttype::all();
     }
 
-    public function store(DocumenttypeRequest $request)
+
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        /*$validator = Validator::make($request->all(),[
             'name' => 'required|unique:post|max:45'
         ]
         );
@@ -30,7 +37,31 @@ class DocumenttypeController extends Controller
         }
 
 
-        return $request->name;
+        return $request->name;*/
+
+        $documenttype = new Documenttype();
+        $documenttype->name = $request->name;
+
+        if ($documenttype->save()) {
+            return $documenttype;
+        }
+    }
+
+/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $documenttype = Documenttype::findOrFail($id);
+        $documenttype->name = $request->name;
+       
+        if ($documenttype->save()) {
+            return $documenttype;
+        }
     }
 
     public function destroy(Documenttypes $r)

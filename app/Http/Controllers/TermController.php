@@ -37,7 +37,13 @@ class TermController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $term = new Term();
+        $term->name = $request->name;
+        $term->attribute_id = $request->attribute_id;
+
+        if ($term->save()) {
+            return $term;
+        }
     }
 
     /**
@@ -66,12 +72,18 @@ class TermController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Term  $term
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Term $term)
+    public function update(Request $request, $id)
     {
-        //
+        $term = Term::findOrFail($id);
+        $term->name = $request->name;
+        $term->attribute_id = $request->attribute_id;
+
+        if ($term->save()) {
+            return $term;
+        }
     }
 
     /**

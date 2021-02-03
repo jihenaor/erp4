@@ -35,7 +35,17 @@ class ItemdispatchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $itemdispatch = new Itemdispatch();
+        $itemdispatch->qty = $request->qty;
+        $itemdispatch->weigth = $request->weigth;
+        $itemdispatch->width = $request->width;
+        $itemdispatch->heigth = $request->height;
+        $itemdispatch->item_id = $request->item_id;
+        $itemdispatch->dispatch_id = $request->dispatch_id;
+
+        if ($itemdispatch->save()) {
+            return $itemdispatch;
+        }
     }
 
     /**
@@ -64,12 +74,22 @@ class ItemdispatchController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Itemdispatch  $itemdispatch
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Itemdispatch $itemdispatch)
+    public function update(Request $request, $id)
     {
-        //
+        $itemdispatch = Itemdispatch::findOrFail($id);
+        $itemdispatch->qty = $request->qty;
+        $itemdispatch->weigth = $request->weigth;
+        $itemdispatch->width = $request->width;
+        $itemdispatch->heigth = $request->height;
+        $itemdispatch->item_id = $request->item_id;
+        $itemdispatch->dispatch_id = $request->dispatch_id;
+
+        if ($itemdispatch->save()) {
+            return $itemdispatch;
+        }
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMethodspaymentsTable extends Migration
+class CreateMethodpaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateMethodspaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('methodspayments', function (Blueprint $table) {
+        Schema::create('methodpayments', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
-            $table->string('name');
-            $table->rememberToken();
+            $table->string('name', 45);
             $table->timestamps();
         });
     }

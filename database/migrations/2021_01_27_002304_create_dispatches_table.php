@@ -21,6 +21,7 @@ class CreateDispatchesTable extends Migration
             $table->string('city', 45);
             $table->string('schedule', 45);
             $table->string('guidenumber', 45);
+            $table->date('deliverydate');  
             $table->unsignedInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->unsignedInteger('carrier_id');

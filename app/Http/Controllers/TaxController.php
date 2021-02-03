@@ -37,7 +37,13 @@ class TaxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tax = new Tax();
+        $tax->name = $request->name;
+        $tax->factor = $request->factor;
+        
+        if ($tax->save()) {
+            return $tax;
+        }
     }
 
     /**
@@ -66,12 +72,18 @@ class TaxController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tax  $tax
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tax $tax)
+    public function update(Request $request, $id)
     {
-        //
+        $tax = Tax::findOrFail($id);
+        $tax->name = $request->name;
+        $tax->factor = $request->factor;
+        
+        if ($tax->save()) {
+            return $tax;
+        }
     }
 
     /**

@@ -35,7 +35,12 @@ class TypenoveltyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $typenovelty = new Typenovelty();
+        $typenovelty->name = $request->name;
+
+        if ($typenovelty->save()) {
+            return $typenovelty;
+        }
     }
 
     /**
@@ -64,12 +69,17 @@ class TypenoveltyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Typenovelty  $typenovelty
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Typenovelty $typenovelty)
+    public function update(Request $request, $id)
     {
-        //
+        $typenovelty = Typenovelty::findOrFail($id);
+        $typenovelty->name = $request->name;
+
+        if ($typenovelty->save()) {
+            return $typenovelty;
+        }
     }
 
     /**

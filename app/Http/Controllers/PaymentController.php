@@ -35,7 +35,16 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payment = new Payment();
+        $payment->date = $request->date;
+        $payment->value = $request->value;
+        $payment->description = $request->description;
+        $payment->type = $request->type;
+        $payment->document_id = $request->document_id;
+
+        if ($payment->save()) {
+            return $payment;
+        }
     }
 
     /**
@@ -64,12 +73,21 @@ class PaymentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Payment  $payment
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, $id)
     {
-        //
+        $payment = Payment::findOrFail($id);
+        $payment->date = $request->date;
+        $payment->value = $request->value;
+        $payment->description = $request->description;
+        $payment->type = $request->type;
+        $payment->document_id = $request->document_id;
+
+        if ($payment->save()) {
+            return $payment;
+        }
     }
 
     /**

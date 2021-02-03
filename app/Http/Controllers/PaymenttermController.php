@@ -38,7 +38,14 @@ class PaymenttermController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paymentterm = new Paymentterm();
+        $paymentterm->name = $request->name;
+        $paymentterm->description = $request->description;
+
+        if ($paymentterm->save()) {
+            return $paymentterm;
+        }
+
     }
 
     /**
@@ -67,12 +74,18 @@ class PaymenttermController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Paymentterm  $paymentterm
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paymentterm $paymentterm)
+    public function update(Request $request, $id)
     {
-        //
+        $paymentterm = Paymentdetail::findOrFail($id);
+        $paymentterm->name = $request->name;
+        $paymentterm->description = $request->description;
+
+        if ($paymentterm->save()) {
+            return $paymentterm;
+        }
     }
 
     /**

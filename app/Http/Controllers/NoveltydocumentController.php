@@ -35,7 +35,17 @@ class NoveltydocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $noveltydocument = new Noveltydocument();
+        $noveltydocument->date = $request->date;
+        $noveltydocument->description = $request->description;
+        $noveltydocument->email = $request->email;
+        $noveltydocument->document_id = $request->document_id;
+        $noveltydocument->typenovelty_id = $request->typenovelty_id;
+        $noveltydocument->user_id = $request->user_id;
+
+        if ($noveltydocument->save()) {
+            return $noveltydocument;
+        }
     }
 
     /**
@@ -64,12 +74,22 @@ class NoveltydocumentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Noveltydocument  $noveltydocument
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Noveltydocument $noveltydocument)
+    public function update(Request $request, $id)
     {
-        //
+        $noveltydocument = Noveltydocument::findOrFail($id);
+        $noveltydocument->date = $request->date;
+        $noveltydocument->description = $request->description;
+        $noveltydocument->email = $request->email;
+        $noveltydocument->document_id = $request->document_id;
+        $noveltydocument->typenovelty_id = $request->typenovelty_id;
+        $noveltydocument->user_id = $request->user_id;
+
+        if ($noveltydocument->save()) {
+            return $noveltydocument;
+        }
     }
 
     /**
