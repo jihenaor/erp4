@@ -22,6 +22,7 @@ class CreateDocumentsTable extends Migration
             $table->date('duedate');
             $table->string('expirationdays',45);
             $table->string('email',90);
+            $table->string('status', 10);
             //$table->string('referenciacliente',45);
             //$table->string('comercial',45);
             //$table->string('recipientbank',45);
@@ -36,8 +37,8 @@ class CreateDocumentsTable extends Migration
             $table->unsignedInteger('paymentterm_id')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('box_id')->nullable();    
-            $table->foreign('box_id')->references('id')->on('boxes');           
+            $table->unsignedInteger('box_id')->nullable();
+            $table->foreign('box_id')->references('id')->on('boxes');
             $table->timestamps();
         });
     }

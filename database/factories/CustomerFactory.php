@@ -30,7 +30,8 @@ class CustomerFactory extends Factory
             'phonenumber' => $this->faker->phoneNumber,
             'mobilenumber' => $this->faker->phoneNumber,
             'email' => $this->faker->email,
-            'type' => $this->faker->randomElement(['1', '2'])
+            'type' => $this->faker->randomElement(['1', '2']),
+            'relation' => $this->faker->randomElement(['1', '2']), // Relacion cliente proveedor
         ];
     }
 }

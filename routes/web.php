@@ -31,8 +31,6 @@ use  App\Http\Controllers\TaxitemdocumentController;
 use  App\Http\Controllers\TermController;
 use  App\Http\Controllers\TypenoveltyController;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,33 +54,38 @@ Route::get('/welcome', function () {
 //Route::get('finddocumenttype', [DocumenttypeController::class, 'index']);
 //Route::post('storedocumenttype', [DocumenttypeController::class, 'store']);
 //Route::delete('methodpayment/{id}', 'MethodpaymentController@destroy')->name('methodpayment.destroy');
+/*
+Route::middleware(['api', 'dos'])->group(function () {
+});
+*/
+
+Route::get('findmethodpayment', [MethodpaymentController::class, 'index']);
 
 Route::resource('documenttype', DocumenttypeController::class);
-Route::resource('tax', TaxController::class);
+
+Route::prefix('api')->group(function () {
+    Route::resource('customer', CustomerController::class);
+    Route::resource('item', ItemController::class);
+    Route::get('/noveltiesboxbyuser/{user_id}', [NoveltiesboxController::class, 'noveltiesboxbyuser']);
+    Route::resource('paymentterm', PaymenttermController::class);
+    Route::resource('tax', TaxController::class);
+});
+
 Route::resource('methodpayment', MethodpaymentController::class);
 Route::resource('taxitem', TaxitemController::class);
 Route::resource('document', DocumentController::class);
 Route::resource('company', CompanyController::class);
-Route::resource('customer', CustomerController::class);
 Route::resource('paymentdetail', PaymentController::class);
 Route::resource('paymentterm', PaymenttermController::class);
 Route::resource('user', UserController::class);
 Route::resource('payment', PaymentController::class);
 Route::resource('paymenttermdetail', PaymenttermdetailController::class);
 Route::resource('consecutive', ConsecutiveController::class);
-Route::resource('paymentterm', PaymenttermController::class);
-Route::resource('item', ItemController::class);
 Route::resource('attribute', AttributeController::class);
 Route::resource('term', TermController::class);
 Route::resource('itemterm', ItemtermController::class);
 
-
-
-
-
-
 Route::get('/consecutivebydocumenttype/{documenttype_id}', [ConsecutiveController::class, 'consecutivebydocumenttype']);
-Route::get('/noveltiesboxbyuser/{user_id}', [NoveltiesboxController::class, 'noveltiesboxbyuser']);
 
 
 

@@ -111,12 +111,15 @@ class NoveltiesboxController extends Controller
      */
     public function noveltiesboxbyuser($user_id)
     {
+
+        // ->whereDate('date', date('Y-m-d'))
+
         $t=Noveltiesbox::where('user_id', $user_id)
-                    ->whereDate('date', date('Y-m-d'))
-                    ->get();
+                    ->get()
+                    ->first();
         $t->load('user');
         $t->load('box');
         return $t;
-        
+
     }
 }

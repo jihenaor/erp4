@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TokensController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['middleware' => ['jwt.auth'], 'prefix' => 'v1'], function() {
+    Route::post('/auth/refresh', 'TokensController@refreshToken');
+    Route::get('/auth/expire', 'TokensController@expireToken');
+});
+
+Route::group(['middleware' => [], 'prefix' => 'v1'], function() {
+    Route::post('login', 'UserController@authenticate');
+    Route::post('/auth/login', [TokensController::class, 'login']);
 });

@@ -25,7 +25,8 @@ class CreateCustomersTable extends Migration
             $table->string('email',90);
             $table->string('website',90)->nullable();
             $table->string('urlimage',45)->nullable();
-            $table->string('type',1); //individual/compañia           
+            $table->string('type',1); //individual/compañia
+            $table->string('relation',1); //Cliente / Proveedor
             $table->timestamps();
         });
     }

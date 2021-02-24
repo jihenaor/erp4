@@ -14,19 +14,8 @@ class TaxController extends Controller
      */
     public function index()
     {
-        //
-        return Tax::where('id', '=', '2')->get();
-    }
-    
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Tax::All();
+        //return Tax::where('id', '=', '2')->get();
     }
 
     /**
@@ -40,32 +29,10 @@ class TaxController extends Controller
         $tax = new Tax();
         $tax->name = $request->name;
         $tax->factor = $request->factor;
-        
+
         if ($tax->save()) {
             return $tax;
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Tax  $tax
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tax $tax)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tax  $tax
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tax $tax)
-    {
-        //
     }
 
     /**
@@ -80,7 +47,7 @@ class TaxController extends Controller
         $tax = Tax::findOrFail($id);
         $tax->name = $request->name;
         $tax->factor = $request->factor;
-        
+
         if ($tax->save()) {
             return $tax;
         }
