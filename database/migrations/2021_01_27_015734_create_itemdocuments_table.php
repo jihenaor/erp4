@@ -19,8 +19,10 @@ class CreateItemdocumentsTable extends Migration
             $table->decimal('qty', 9, 2);
             $table->decimal('unitvalue', 9, 2);
             $table->unsignedInteger('document_id');
-            $table->foreign('document_id')->references('id')->on('documents');
+            $table->unsignedInteger('row');
             $table->unsignedInteger('item_id');
+
+            $table->foreign('document_id')->references('id')->on('documents');
             $table->foreign('item_id')->references('id')->on('items');
             $table->timestamps();
         });

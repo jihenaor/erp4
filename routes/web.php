@@ -65,7 +65,10 @@ Route::resource('documenttype', DocumenttypeController::class);
 
 Route::prefix('api')->group(function () {
     Route::resource('customer', CustomerController::class);
+    Route::resource('document', DocumentController::class);
+    Route::get('/documentdraft/{documenttype_id}', [DocumentController::class, 'documentdraft']);
     Route::resource('item', ItemController::class);
+    Route::resource('itemdocument', ItemdocumentController::class);
     Route::get('/noveltiesboxbyuser/{user_id}', [NoveltiesboxController::class, 'noveltiesboxbyuser']);
     Route::resource('paymentterm', PaymenttermController::class);
     Route::resource('tax', TaxController::class);
@@ -73,7 +76,6 @@ Route::prefix('api')->group(function () {
 
 Route::resource('methodpayment', MethodpaymentController::class);
 Route::resource('taxitem', TaxitemController::class);
-Route::resource('document', DocumentController::class);
 Route::resource('company', CompanyController::class);
 Route::resource('paymentdetail', PaymentController::class);
 Route::resource('paymentterm', PaymenttermController::class);

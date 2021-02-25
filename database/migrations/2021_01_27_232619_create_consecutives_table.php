@@ -22,6 +22,7 @@ class CreateConsecutivesTable extends Migration
             $table->date('finalvigence');
             $table->unsignedInteger('consecutive');
             $table->unsignedInteger('documenttype_id');
+            $table->string('status', 1);
             $table->foreign('documenttype_id')->references('id')->on('documenttypes');
             $table->timestamps();
         });

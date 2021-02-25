@@ -59,8 +59,12 @@ class TaxController extends Controller
      * @param  \App\Models\Tax  $tax
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tax $tax)
+    public function destroy($id)
     {
-        //
+        $t = Tax::findOrFail($id);
+
+        if ($t->delete()) {
+            return $t;
+        }
     }
 }

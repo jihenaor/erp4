@@ -17,7 +17,7 @@ class ConsecutiveController extends Controller
         $l=Consecutive::All();
         $l->load('documenttype');
         return $l;
-        
+
     }
 
     /**
@@ -30,7 +30,6 @@ class ConsecutiveController extends Controller
         $l=Consecutive::All();
         $l->load('documenttype');
         return $l;
-        
     }
 
 
@@ -107,7 +106,7 @@ class ConsecutiveController extends Controller
         $consecutive->finalvigence = $request->finalvigence;
         $consecutive->consecutive = $request->consecutive;
         $consecutive->documenttype_id = $request->documenttype_id;
-        
+
         if ($consecutive->save()) {
             return $consecutive;
         }
@@ -124,7 +123,7 @@ class ConsecutiveController extends Controller
         //
     }
 
-      /**
+    /**
      * Consulta el consecutivo por tipo de documento
      *
      * @param  Documenttype_id
@@ -137,7 +136,6 @@ class ConsecutiveController extends Controller
         $t->load('documenttype');
         return $t;
     }
-    
-    
+
 
 }

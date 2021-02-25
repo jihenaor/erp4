@@ -25,7 +25,7 @@ class ItemController extends Controller
         */
 /*
         $l->map(function ($item) {
-            
+
         });
 */
         return $l;
@@ -61,28 +61,6 @@ class ItemController extends Controller
         if ($item->save()) {
             return $item;
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Item $item)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Item $item)
-    {
-        //
     }
 
     /**

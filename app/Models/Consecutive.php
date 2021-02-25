@@ -10,7 +10,10 @@ class Consecutive extends Model
     use HasFactory;
 
     protected $fillable = [
-        'startingrange', 'finalrange', 'prefix', 'startingvigence', 'finalvigence', 'consecutive'
+        'startingrange',
+        'finalrange',
+        'prefix',
+        'startingvigence', 'finalvigence', 'consecutive'
     ];
 
     public function documenttype()
@@ -19,5 +22,5 @@ class Consecutive extends Model
     }
 
 
-   
+
 }

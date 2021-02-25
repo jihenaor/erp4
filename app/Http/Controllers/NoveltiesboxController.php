@@ -48,27 +48,6 @@ class NoveltiesboxController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Noveltiesbox  $noveltiesbox
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Noveltiesbox $noveltiesbox)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Noveltiesbox  $noveltiesbox
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Noveltiesbox $noveltiesbox)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -101,7 +80,6 @@ class NoveltiesboxController extends Controller
     {
         //
     }
-
 
      /**
      * Consulta el consecutivo por tipo de documento

@@ -28,7 +28,8 @@ class ConsecutiveFactory extends Factory
             'prefix' => $this->faker->randomElement(['INV', 'COT', 'NOT']),
             'startingvigence' => $this->faker->date($format='Y-m-d', $max='now'),
             'finalvigence' => $this->faker->date($format='Y-m-d', $max='now'),
-            'consecutive' => $this->faker->numberBetween(1, 10)
+            'consecutive' => $this->faker->numberBetween(1, 10),
+            'status' => $this->faker->randomElement(['A', 'I']),
 
         ];
     }

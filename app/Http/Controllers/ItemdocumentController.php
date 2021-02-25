@@ -17,14 +17,14 @@ class ItemdocumentController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    private function initFields(Request $request, Itemdocument $itemdocument) {
+        $itemdocument->description = $request->description;
+        $itemdocument->qty = $request->qty;
+        $itemdocument->unitvalue = $request->unitvalue;
+        $itemdocument->document_id = $request->document_id;
+        $itemdocument->item_id = $request->item_id;
+
+        return $itemdocument;
     }
 
     /**
@@ -36,38 +36,13 @@ class ItemdocumentController extends Controller
     public function store(Request $request)
     {
         $itemdocument = new Itemdocument();
-        $itemdocument->description = $request->description;
-        $itemdocument->qty = $request->qty;
-        $itemdocument->unitvalue = $request->unitvalue;
-        $itemdocument->document_id = $request->document_id;
-        $itemdocument->item_id = $request->item_id;
+
+        $itemdocument = $this->initFields($request, $itemdocument);
 
         if ($itemdocument->save()) {
             return $itemdocument;
         }
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Itemdocument  $itemdocument
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Itemdocument $itemdocument)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Itemdocument  $itemdocument
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Itemdocument $itemdocument)
-    {
-        //
     }
 
     /**
@@ -80,11 +55,8 @@ class ItemdocumentController extends Controller
     public function update(Request $request, $id)
     {
         $itemdocument = Itemdocument::findOrFail($id);
-        $itemdocument->description = $request->description;
-        $itemdocument->qty = $request->qty;
-        $itemdocument->unitvalue = $request->unitvalue;
-        $itemdocument->document_id = $request->document_id;
-        $itemdocument->item_id = $request->item_id;
+
+        $itemdocument = $this->initFields($request, $itemdocument);
 
         if ($itemdocument->save()) {
             return $itemdocument;

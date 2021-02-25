@@ -15,13 +15,13 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
-            $table->string('consecutive',45);
+            $table->string('consecutive',45)->nullable();
             $table->unsignedInteger('customer_id');
             $table->date('date');
-            $table->string('paymentreference',100);
-            $table->date('duedate');
-            $table->string('expirationdays',45);
-            $table->string('email',90);
+            $table->string('paymentreference',100)->nullable();
+            $table->date('duedate')->nullable();
+            $table->string('expirationdays',45)->nullable();
+            $table->string('email',90)->nullable();
             $table->string('status', 10);
             //$table->string('referenciacliente',45);
             //$table->string('comercial',45);

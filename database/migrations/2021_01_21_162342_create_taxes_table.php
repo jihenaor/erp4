@@ -15,7 +15,7 @@ class CreateTaxesTable extends Migration
     {
         Schema::create('taxes', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
-            $table->string('name');
+            $table->string('name', 40);
             $table->decimal('factor', 5, 2);
             $table->timestamps();
         });

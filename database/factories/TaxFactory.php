@@ -22,7 +22,7 @@ class TaxFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(),
+            'name' => $this->faker->word(),
             'factor' => 0
         ];
     }
